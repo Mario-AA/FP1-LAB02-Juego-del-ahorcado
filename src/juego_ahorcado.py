@@ -30,8 +30,11 @@ def normalizar(cadena):
     Devuelve:
       Cadena de texto con la palabra normalizada
     """
-    # TODO: Implementa esta función (y elimina la instrucción pass)
-    pass
+    cadena=cadena.lower()
+    cadena=cadena.strip()
+    cadena = cadena.replace("á","a").replace("é","e").replace("í","i").replace("ó","o").replace("ú","u")
+    cadena = cadena.replace("ü","u")
+    return cadena
 
 def enmascarar(palabra_secreta, letras_usadas=""):
     '''Devuelve una cadena de texto con la palabra enmascarada. 
@@ -44,11 +47,25 @@ def enmascarar(palabra_secreta, letras_usadas=""):
     Devuelve:
       Cadena de texto con la palabra enmascarada
     '''
-    # TODO: Implementa esta función (y elimina la instrucción pass)
-    pass
+    res=""
+    for c in palabra_secreta:
+        if c in letras_usadas:
+            res +=c
+        else:
+            res+="_"
+        letras_usadas +=c
+    return res
 
+    
+
+   
 
 def ha_ganado(palabra_enmascarada):
+    if  "_" not in palabra_enmascarada:
+        return True
+    else:
+        return False
+
     '''Devuelve True si el jugador ha ganado (es decir, si no quedan letras por descubrir en la palabra enmascarada).
 
     Parámetros:
@@ -57,12 +74,31 @@ def ha_ganado(palabra_enmascarada):
     Devuelve:
     - True si el jugador ha ganado, False en caso contrario
     '''
-    # TODO: Implementa esta función (y elimina la instrucción pass)
-    pass
+  
 
+def mostrar_estado(palabra_enmascarada,letras_usadas,intentos_restantes):
+    print (f"Estado: {" ".join(palabra_enmascarada)}")
+    if letras_usadas == "":
+        print (f"Letras usadas: Ninguna")
+    else:
+        print (f"Letras usadas: {letras_usadas}")
+    print (f"Intentos restantes: {intentos_restantes}") 
 
-# TODO: Implementa la función mostrar_estado
-
+ def pedir_letra(letras_usadas): 
+    letra = ""
+    while letra = ""
+    letra = input("Introduce una letra:")
+    if not 0<len(letra)<2:
+        print("Debes introducir una única letra")
+        letra=""
+    if letra.isdigit:
+        print("Debes introducir una letra")
+        letra = ""
+    if letra in letras_usadas:
+        print ("Esa letra ya la has usado anteriormente")
+        letra=""
+    return letra.lower()
+pedir_letra("aei")
 # TODO: Implementa la función pedir_letra
 
 # TODO: Implementa la función jugar
